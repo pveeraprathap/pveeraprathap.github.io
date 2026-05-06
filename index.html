@@ -4,166 +4,276 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veera Prathap Polisetti | PLM Solution Architect</title>
-    <!-- Using Tailwind for the "Premium" look without extra CSS files -->
-    <script src="https://tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cloudflare.com">
+
     <style>
-        body { background-color: #0f172a; color: #e2e8f0; }
-        .glass-card { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
-        .accent-text { color: #38bdf8; } /* Cyber Blue */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f6f8;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+
+        header {
+            border-bottom: 2px solid #eee;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 32px;
+            color: #2c3e50;
+        }
+
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+
+        h3 {
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+
+        p { line-height: 1.6; }
+
+        ul { margin-top: 5px; }
+
+        .contact {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #ecf0f1;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 12px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .edu-card {
+            background: #f9fbfc;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; }
+        }
+
+        @media print {
+            .btn { display: none; }
+            body { background: white; }
+        }
     </style>
 </head>
-<body class="font-sans antialiased">
 
-    <!-- HERO SECTION -->
-    <header class="py-20 px-6 border-b border-slate-800">
-        <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10">
-            
-            <!-- PHOTO SECTION -->
-            <div class="relative">
-                <div class="w-48 h-48 rounded-2xl overflow-hidden border-2 border-sky-500 shadow-[0_0_20px_rgba(56,189,248,0.3)]">
-                    <!-- REPLACE 'profile.jpg' with your actual photo file -->
-                    <img src="profile.jpg" alt="Veera Prathap Polisetti" 
-                         onerror="this.src='https://ui-avatars.com'"
-                         class="w-full h-full object-cover">
-                </div>
-                <div class="absolute -bottom-2 -right-2 bg-sky-500 text-slate-900 px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider">
-                    Expert
-                </div>
-            </div>
+<body>
 
-            <div class="text-center md:text-left">
-                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-2">
-                    Veera Prathap <span class="accent-text">Polisetti</span>
-                </h1>
-                <p class="text-xl md:text-2xl font-medium text-slate-400 mb-6">
-                    PLM Solution Architect <span class="mx-2 text-slate-600">|</span> Teamcenter Expert
-                </p>
-                <div class="flex flex-wrap justify-center md:justify-start gap-4 text-sm">
-                    <a href="mailto:pveeraprathap@gmail.com" class="flex items-center gap-2 hover:text-sky-400 transition"><i class="fas fa-envelope text-sky-500"></i> pveeraprathap@gmail.com</a>
-                    <a href="https://www.linkedin.com/in/pveeraprathap" target="_blank" class="flex items-center gap-2 hover:text-sky-400 transition"><i class="fab fa-linkedin text-sky-500"></i> LinkedIn Profile</a>
-                </div>
-            </div>
+<div class="container" id="resume">
+
+<header>
+    <h1>Veera Prathap Polisetti</h1>
+    <h3>PLM Solution Architect | Teamcenter Expert</h3>
+
+    <div class="contact">
+        📍 Karlsruhe, Germany <br>
+        📞 +49 15145800521 <br>
+        ✉️ <a href="mailto:pveeraprathap@gmail.com">pveeraprathap@gmail.com</a>
+        <button class="btn" onclick="copyEmail()">Copy</button><br>
+        🔗 <a href="https://www.linkedin.com/in/pveeraprathap" target="_blank">LinkedIn Profile</a>
+    </div>
+
+    <button class="btn" onclick="downloadPDF()">Download as PDF</button>
+</header>
+
+<section>
+    <h2>Profile</h2>
+    <p>
+        Experienced PLM Solution Architect with 14+ years of expertise in Teamcenter, enterprise PLM solutions,
+        and cloud-enabled architectures. Proven track record in delivering scalable systems and leading digital transformation initiatives.
+    </p>
+</section>
+
+<section>
+    <h2>Technical Skills</h2>
+    <div>
+        <span class="tag">Teamcenter</span>
+        <span class="tag">ITK</span>
+        <span class="tag">BMIDE</span>
+        <span class="tag">RAC</span>
+        <span class="tag">Docker</span>
+        <span class="tag">Kubernetes</span>
+        <span class="tag">OpenShift</span>
+        <span class="tag">Azure</span>
+        <span class="tag">Git</span>
+        <span class="tag">SQH</span>
+    </div>
+</section>
+
+<section>
+    <h2>Professional Experience</h2>
+
+    <h3>Piterion GmbH, Germany — Solution Architect / PLM Consultant</h3>
+    <p><i>Feb 2016 – Present</i></p>
+    <ul>
+        <li>Teamcenter installation & administration using TEM and Deployment Center</li>
+        <li>Workflow design, ITK development, BMIDE configuration, RAC customization</li>
+        <li>Containerization using Docker, Kubernetes, OpenShift</li>
+        <li>Deployment automation and cloud integration</li>
+        <li>Dispatcher and TcIF-SCF support</li>
+        <li>Supplier Quality Hub (SQH) setup & Scripted Business Logic configuration</li>
+    </ul>
+
+    <b>Key Clients / Projects:</b>
+    <ul>
+        <li><b>Siemens IEC (Karlsruhe)</b> – Architecture, deployment automation, MRL import, classification upgrades, SCM/SCF setup</li>
+        <li><b>Volkswagen (Wolfsburg)</b> – Teamcenter customization for enterprise PLM requirements</li>
+        <li><b>DESY (Hamburg)</b> – Delivered Teamcenter customization workshops</li>
+    </ul>
+
+    <h3>Piterion India — PLM Consultant</h3>
+    <p><i>Oct 2014 – Jan 2016</i></p>
+    <ul>
+        <li>Teamcenter customization (ITK, RAC, BMIDE)</li>
+        <li>NX Open, Journaling, Solid Edge integrations</li>
+        <li>Installation, upgrade, and volume management</li>
+        <li>Client workshops and knowledge transfer</li>
+    </ul>
+
+    <b>Key Clients / Projects:</b>
+    <ul>
+        <li><b>Siemens GDC (Bangalore)</b> – Teamcenter 10.x customization projects</li>
+        <li><b>Siemens (Gurgaon)</b> – RAC customization, NX Open & Solid Edge integrations</li>
+        <li><b>GE (Bangalore)</b> – Teamcenter customization and integration support</li>
+        <li><b>Trico (USA)</b> – Teamcenter installation and upgrade</li>
+        <li><b>BIL (Chennai)</b> – Volume management and ITK customization</li>
+    </ul>
+
+    <h3>Geometric Limited — Software Engineer</h3>
+    <p><i>Mar 2014 – Oct 2014</i></p>
+    <ul>
+        <li>Developed Teamcenter customizations for client projects (including National Oilwell Varco)</li>
+        <li>Worked on server-side enhancements using ITK</li>
+        <li>Supported integration and testing activities for PLM solutions</li>
+    </ul>
+
+    <h3>Infosys Limited — Senior Systems Engineer</h3>
+    <p><i>Jul 2011 – Mar 2014</i></p>
+    <ul>
+        <li>Supported Teamcenter installation, configuration, and maintenance for ALSTOM Power projects</li>
+        <li>Performed bug fixing and enhancements for server-side and client-side components</li>
+        <li>Prepared technical specifications and test cases for custom solutions</li>
+        <li>Collaborated with cross-functional teams to ensure stable PLM system performance</li>
+    </ul>
+
+</section>
+
+<section class="grid">
+    <div>
+        <h2>Education</h2>
+
+        <div class="edu-card">
+            <b>M.Tech – Materials Engineering</b><br>
+            NITK<br>
+            <i>2009 – 2011</i>
         </div>
-    </header>
 
-    <main class="max-w-4xl mx-auto px-6 py-16 space-y-20">
+        <div class="edu-card">
+            <b>B.Tech – Industrial & Production Engineering</b><br>
+            <i>2005 – 2009</i>
+        </div>
 
-        <!-- SUMMARY -->
-        <section class="glass-card p-8 rounded-3xl">
-            <h2 class="text-2xl font-bold mb-4 flex items-center gap-3">
-                <i class="fas fa-user-tie accent-text"></i> Executive Summary
-            </h2>
-            <p class="text-lg leading-relaxed text-slate-300">
-                Experienced PLM Solution Architect with **14+ years of expertise** in Teamcenter, enterprise PLM solutions, and modern cloud technologies. I specialize in designing, implementing, and optimizing solutions across system architecture, customization, and deployment automation with Kubernetes and Azure.
-            </p>
-        </section>
+        <div class="edu-card">
+            <b>PUC – MPC</b><br>
+            <i>2003 – 2005</i>
+        </div>
 
-        <!-- SKILLS GRID -->
-        <section>
-            <h2 class="text-2xl font-bold mb-8 flex items-center gap-3">
-                <i class="fas fa-bolt accent-text"></i> Core Expertise
-            </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="p-4 bg-slate-800/50 rounded-xl border border-slate-700 hover:border-sky-500/50 transition cursor-default">
-                    <span class="text-xs font-bold text-sky-400 uppercase">Product Lifecycle</span>
-                    <p class="font-bold">Teamcenter Admin & Customization</p>
-                </div>
-                <div class="p-4 bg-slate-800/50 rounded-xl border border-slate-700 hover:border-sky-500/50 transition cursor-default">
-                    <span class="text-xs font-bold text-sky-400 uppercase">DevOps</span>
-                    <p class="font-bold">Docker, K8s & OpenShift</p>
-                </div>
-                <div class="p-4 bg-slate-800/50 rounded-xl border border-slate-700 hover:border-sky-500/50 transition cursor-default">
-                    <span class="text-xs font-bold text-sky-400 uppercase">Development</span>
-                    <p class="font-bold">ITK, BMIDE, RAC & Git</p>
-                </div>
-            </div>
-        </section>
+        <div class="edu-card">
+            <b>SSC</b><br>
+            <i>2002 – 2003</i>
+        </div>
 
-        <!-- EXPERIENCE TIMELINE -->
-        <section>
-            <h2 class="text-2xl font-bold mb-10 flex items-center gap-3">
-                <i class="fas fa-briefcase accent-text"></i> Professional Journey
-            </h2>
-            <div class="space-y-12">
-                <!-- Piterion Germany -->
-                <div class="group relative">
-                    <div class="flex flex-col md:flex-row md:justify-between mb-4">
-                        <div>
-                            <h3 class="text-xl font-bold text-white group-hover:accent-text transition">Piterion GmbH, Germany</h3>
-                            <p class="text-sky-500 font-medium">Solution Architect / PLM Consultant</p>
-                        </div>
-                        <span class="text-slate-500 font-mono text-sm">Feb 2016 – Present</span>
-                    </div>
-                    <ul class="list-none space-y-2 text-slate-400">
-                        <li class="flex gap-2"><i class="fas fa-check text-sky-900 mt-1"></i> Teamcenter installation/administration using TEM & Deployment Center</li>
-                        <li class="flex gap-2"><i class="fas fa-check text-sky-900 mt-1"></i> Workflow design, ITK development, and BMIDE configuration</li>
-                        <li class="flex gap-2"><i class="fas fa-check text-sky-900 mt-1"></i> Containerization with Docker, Kubernetes, and OpenShift</li>
-                    </ul>
-                    <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="text-[10px] px-2 py-1 bg-slate-800 rounded border border-slate-700">Siemens IEC</span>
-                        <span class="text-[10px] px-2 py-1 bg-slate-800 rounded border border-slate-700">Volkswagen</span>
-                        <span class="text-[10px] px-2 py-1 bg-slate-800 rounded border border-slate-700">DESY</span>
-                    </div>
-                </div>
+    </div>
 
-                <!-- Piterion India -->
-                <div class="group">
-                    <div class="flex flex-col md:flex-row md:justify-between mb-4">
-                        <div>
-                            <h3 class="text-xl font-bold text-white group-hover:accent-text transition">Piterion India</h3>
-                            <p class="text-slate-400 font-medium">PLM Consultant</p>
-                        </div>
-                        <span class="text-slate-500 font-mono text-sm">Oct 2014 – Jan 2016</span>
-                    </div>
-                </div>
+    <div>
+        <h2>Languages</h2>
+        <ul>
+            <li>English – Professional</li>
+            <li>German – Basic</li>
+            <li>Telugu – Native</li>
+            <li>Kannada – Conversational</li>
+        </ul>
+    </div>
+</section>
 
-                <!-- Previous Roles -->
-                <div class="grid md:grid-cols-2 gap-8 pt-8 border-t border-slate-800">
-                    <div>
-                        <h4 class="font-bold">Infosys Limited</h4>
-                        <p class="text-sm text-slate-500">Senior Systems Engineer | 2011 – 2014</p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold">Geometric Limited</h4>
-                        <p class="text-sm text-slate-500">Software Engineer | 2014</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+</div>
 
-        <!-- EDUCATION & LANGUAGES -->
-        <section class="grid md:grid-cols-2 gap-10 pt-10 border-t border-slate-800">
-            <div>
-                <h3 class="text-xl font-bold mb-6 italic border-l-4 border-sky-500 pl-4">Education</h3>
-                <div class="space-y-4 text-sm">
-                    <div>
-                        <p class="text-white font-bold">M.Tech – Materials Engineering</p>
-                        <p class="text-slate-500 uppercase tracking-tighter">NITK, Karnataka</p>
-                    </div>
-                    <div>
-                        <p class="text-white font-bold">B.Tech – Industrial & Production</p>
-                        <p class="text-slate-500 uppercase tracking-tighter">GPREC, Andhra Pradesh</p>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <h3 class="text-xl font-bold mb-6 italic border-l-4 border-sky-500 pl-4">Languages</h3>
-                <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-sky-500/10 text-sky-400 border border-sky-500/20 rounded-full text-xs">English (Expert)</span>
-                    <span class="px-3 py-1 bg-slate-800 text-slate-400 border border-slate-700 rounded-full text-xs">German (Basic)</span>
-                    <span class="px-3 py-1 bg-slate-800 text-slate-400 border border-slate-700 rounded-full text-xs">Telugu (Native)</span>
-                    <span class="px-3 py-1 bg-slate-800 text-slate-400 border border-slate-700 rounded-full text-xs">Kannada</span>
-                </div>
-            </div>
-        </section>
+<script>
+function copyEmail() {
+    navigator.clipboard.writeText("pveeraprathap@gmail.com");
+    alert("Email copied!");
+}
 
-    </main>
+function downloadPDF() {
+    window.print();
+}
+</script>
 
-    <footer class="py-20 text-center border-t border-slate-800">
-        <p class="text-slate-600 text-sm italic">Designed for the 14+ Year PLM Professional</p>
-        <p class="text-slate-500 mt-2">Karlsruhe, Germany</p>
-    </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<script>
+function copyEmail() {
+    navigator.clipboard.writeText("pveeraprathap@gmail.com");
+    alert("Email copied!");
+}
+
+function downloadPDF() {
+    const element = document.getElementById("resume");
+    const opt = {
+        margin: 0.5,
+        filename: 'Veera_Prathap_Polisetti_Resume.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().set(opt).from(element).save();
+}
+</script>
 
 </body>
 </html>
