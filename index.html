@@ -93,10 +93,27 @@
             .grid { grid-template-columns: 1fr; }
         }
 
+        /* ✅ PRINT FIX */
         @media print {
-            .btn { display: none; }
-            body { background: white; }
-        }
+
+			/* Avoid breaking inside important blocks */
+			section, .edu-card, li, h3 {
+				break-inside: avoid;
+				page-break-inside: avoid;
+			}
+
+			/* Ensure headings stay with content */
+			h2 {
+				break-after: avoid;
+				page-break-after: avoid;
+			}
+
+			/* Prevent awkward splitting of grids */
+			.grid {
+				break-inside: avoid;
+				page-break-inside: avoid;
+			}
+		}
     </style>
 </head>
 
@@ -112,12 +129,18 @@
         📍 Karlsruhe, Germany <br>
         📞 +49 15145800521 <br>
         ✉️ <a href="mailto:pveeraprathap@gmail.com">pveeraprathap@gmail.com</a>
-        <button class="btn" onclick="copyEmail()">Copy</button><br>
-        🔗 <a href="https://www.linkedin.com/in/pveeraprathap" target="_blank">LinkedIn Profile</a>
+
+        <div class="no-print">
+            <button class="btn" onclick="copyEmail()">Copy</button>
+        </div>
+
+        <br>🔗 <a href="https://www.linkedin.com/in/pveeraprathap" target="_blank">LinkedIn Profile</a>
         🌐 <a href="https://pveeraprathap.github.io/" target="_blank">Portfolio Website</a>
     </div>
 
-    <button class="btn" onclick="downloadPDF()">Download as PDF</button>
+    <div class="no-print">
+        <button class="btn" onclick="downloadPDF()">Download as PDF</button>
+    </div>
 </header>
 
 <section>
@@ -226,7 +249,6 @@
             <b>SSC</b><br>
             <i>2002 – 2003</i>
         </div>
-
     </div>
 
     <div>
@@ -249,32 +271,47 @@ function copyEmail() {
 }
 
 function downloadPDF() {
-    window.print();
-}
-</script>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-
-<script>
-function copyEmail() {
-    navigator.clipboard.writeText("pveeraprathap@gmail.com");
-    alert("Email copied!");
-}
-
-function downloadPDF() {
     const element = document.getElementById("resume");
+
+    // Hide buttons before capture
+    const buttons = document.querySelectorAll(".no-print");
+    buttons.forEach(btn => btn.style.display = "none");
+
     const opt = {
         margin: 0.5,
         filename: 'Veera_Prathap_Polisetti_Resume.pdf',
         image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+
+        html2canvas: {
+            scale: 2,
+            useCORS: true,
+            scrollY: 0
+        },
+
+        jsPDF: {
+            unit: 'in',
+            format: 'a4',
+            orientation: 'portrait'
+        },
+
+        pagebreak: {
+            mode: ['css', 'legacy', 'avoid-all'],
+            avoid: ['section', '.edu-card', 'h3', 'li', '.grid']
+        }
     };
 
-    html2pdf().set(opt).from(element).save();
+    html2pdf()
+        .set(opt)
+        .from(element)
+        .save()
+        .then(() => {
+            // Restore buttons after PDF generation
+            buttons.forEach(btn => btn.style.display = "block");
+        });
 }
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 </body>
 </html>
